@@ -2,6 +2,7 @@ const express = require('express');
 const connect = require('./config/database')
 const Tweet = require('./models/tweet')
 const TweetRepository = require('./repository/tweet-repository')
+const Comment = require('./models/comment')
 
 const app = express();
 const PORT = 3000
@@ -21,9 +22,16 @@ app.listen(PORT, async () => {
     // tweet.userEmail = 'test@123';
     // tweet.save();
 
+    // const tweetRepo = new TweetRepository();
+    // const tweet = await tweetRepo.create({content:'First tweet with comment'});
+    // tweet.comments.push({content: 'first comment is created'});
+    // await tweet.save();
+
     const tweetRepo = new TweetRepository();
-    const tweet = await tweetRepo.create({content:'First tweet with comment'});
-    tweet.comments.push({content: 'first comment is created'});
-    await tweet.save();
+    // const tweet = await tweetRepo.create({content:'Latest tweet is here'});
+    // const comment = await Comment.create({content: 'latest comment is here'})
+    // tweet.comments.push(comment);
+    // await tweet.save();
+    const tweet = await tweetRepo.getWithComments('668d5ff03753fbdaa83ff78d');
     console.log(tweet);
 })
