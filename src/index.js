@@ -31,7 +31,9 @@ app.listen(PORT, async () => {
     // const tweet = await tweetRepo.create({content:'Latest tweet is here'});
     // const comment = await Comment.create({content: 'latest comment is here'})
     // tweet.comments.push(comment);
-    // await tweet.save();
-    const tweet = await tweetRepo.getWithComments('668d5ff03753fbdaa83ff78d');
+    // // await tweet.save();
+    // const tweet = await tweetRepo.getWithComments('668d5ff03753fbdaa83ff78d');
+
+    const tweet = await tweetRepo.create({content: 'with hooks 1'})
     console.log(tweet);
 })
