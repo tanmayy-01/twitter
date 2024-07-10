@@ -1,19 +1,19 @@
 const mongoose  = require('mongoose');
 
-const tweetSchema = new mongoose.Schema({
+const hashtagSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true,
         max: [250, 'Tweet cannot be exceed more than 250 characters ']
     },
    
-    hashtags: [
+    tweets: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Hashtag'
+            ref: 'Tweet'
         }
     ]
 },{timestamps:true})
 
-const Tweet = mongoose.model('Tweet', tweetSchema);
-module.exports = Tweet;
+const Hashtag = mongoose.model('Hashtag', hashtagSchema);
+module.exports = Hashtag;
