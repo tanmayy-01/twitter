@@ -1,10 +1,9 @@
 const mongoose  = require('mongoose');
 
 const hashtagSchema = new mongoose.Schema({
-    content: {
+    title: {
         type: String,
-        required: true,
-        max: [250, 'Tweet cannot be exceed more than 250 characters ']
+        required: true
     },
    
     tweets: [
