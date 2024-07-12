@@ -36,6 +36,18 @@ class HashtagRepository {
             console.log(error)
         }
     }
+
+    async findByName(titleList) {
+        try {
+            const tags = await Hashtag.find({
+                title: titleList
+            }).select('title -_id')
+            return tags;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 }
 
 module.exports = HashtagRepository;

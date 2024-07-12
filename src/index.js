@@ -1,6 +1,6 @@
 const express = require('express');
-const connect = require('./config/database')
-const {HashtagRepository}= require('./repository/index')
+const connect = require('./config/database');
+const {TweetService} = require('./services')
 
 const app = express();
 const PORT = 3000
@@ -10,28 +10,11 @@ app.listen(PORT, async () => {
     await connect();
     console.log('DB is connected');
 
-    const tagRepo = new HashtagRepository();
-    const tags = tagRepo.bulkCreate([
-        {
-            title: 'Trend',
-            tweets: []
-        },
-        {
-            title: 'fun',
-            tweets: []
-        },
-        {
-            title: 'Coding',
-            tweets: []
-        },
-        {
-            title: 'Growth',
-            tweets: []
-        },
-        {
-            title: 'Life',
-            tweets: []
-        },
-    ]) 
+    const service = new TweetService();
+    const tweet = service.create({
+        content: 'What a #lovely #day !'
+    })
 
+    console.log(tweet);
+    
 })
