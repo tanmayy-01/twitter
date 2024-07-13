@@ -12,7 +12,7 @@ app.listen(PORT, async () => {
 
     const service = new TweetService();
     const tweet = service.create({
-        content: 'What a #lovely #day !'
+        content: 'Join good #Organisation bor better #Growth'
     })
 
     console.log(tweet);
