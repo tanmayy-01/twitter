@@ -1,6 +1,7 @@
-const express = require('express');
-const connect = require('./config/database');
-const {TweetService} = require('./services')
+import express from 'express';
+import connect from './config/database.js'
+// import { TweetService } from './services/index.js';
+import TweetService from './services/tweet-service.js';
 
 const app = express();
 const PORT = 3000
@@ -12,7 +13,7 @@ app.listen(PORT, async () => {
 
     const service = new TweetService();
     const tweet = service.create({
-        content: 'Join good #Organisation bor better #Growth'
+        content: 'Done with #Refactor?'
     })
 
     console.log(tweet);
